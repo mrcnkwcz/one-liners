@@ -11,3 +11,6 @@ ip -o -br l | column -t | awk '{print $1, $3}'
 ip -o -br -4 a | column -t | awk '{print $1, $3}'
 ## IPv6
 ip -o -br -6 a | column -t | awk '{print $1, $3}'
+## DNS
+nslookup -q=A $(hostname -f)
+resolvectl query vm-ceph0{1..3}.domain.local
